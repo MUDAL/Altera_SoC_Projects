@@ -1,55 +1,18 @@
-# Prerequisites
-*.d
+# Disposable build directories
+**/build/
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Backup files
+*.bak
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# ModelSim Transcript
+transcript
 
-# Precompiled Headers
-*.gch
-*.pch
+# Temporary files
+*.tmp
+*.log
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Qsys artifact
+.qsys_edit
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# debug information files
-*.dwo
+# Binaries
+bin
