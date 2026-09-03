@@ -87,9 +87,9 @@ module bin2bcd_tb();
       int eof; 
       wait(rst_n_sync == 1'b0);
       wait(rst_n_sync == 1'b1);
-      fd = $fopen("../scripts/vectors.txt", "r");
+      fd = $fopen("../scripts/test/bin2bcd_tb_vectors.txt", "r");
       
-      if(fd == 0) $fatal(1, "Failed to open vectors.txt");
+      if(fd == 0) $fatal(1, "Failed to open bin2bcd_tb_vectors.txt");
       while(1) begin
          eof = $feof(fd);
          if(eof) begin
