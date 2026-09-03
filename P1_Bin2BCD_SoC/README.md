@@ -4,6 +4,8 @@ In this project, the hardware and software for a custom avalon-bus-compliant bin
 
 ## Project File Structure
 
+TO-DO: Update the tree after final tests have been conducted on the execution of testbenches from Tcl scripts.  
+
 ```
 .
 ├── README.md
@@ -55,7 +57,13 @@ In order to facilitate two-way communication between a hard processor and custom
 ### 1.4 State Diagram: bin2bcd IP
  
 <p align="center">
-    <img width=30% src="./images/bin2bcd_fsm.png">
+    <img width=50% src="./images/bin2bcd_fsm.png">
+</p> 
+
+### 1.5 Avalon Bus Timing Diagrams
+
+<p align="center">
+    <img width=50% src="./images/avalon_bus_timing.png">
 </p> 
 
 ## 2 Programmer's Model
@@ -81,6 +89,14 @@ In order to facilitate two-way communication between a hard processor and custom
 - Wait for `DONE` bit to be set  
 - Read the **Output Data Registers**  
 
-## Useful resources
+## 3 Simulation
+
+TO-DO: Add instructions on how to run the testbenches from a script. This part is pending.  
+
+## 4 Demo
+
+TO-DO: Add video demo
+
+## Useful Resources
 
 1. [Altera community forum: How to use Tcl script to generate Qsys system](https://community.altera.com/discussions/quartus-prime/how-to-use-tcl-script-to-generate-qsys-system-inside-quartus/328964)  
