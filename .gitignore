@@ -1,18 +1,11 @@
-# Disposable build directories
-**/build/
-
-# Backup files
+# Artefacts
+build/
+test/
+.qsys_edit/
+bin/
 *.bak
-
-# ModelSim Transcript
 transcript
 
 # Temporary files
 *.tmp
 *.log
-
-# Qsys artifact
-.qsys_edit
-
-# Binaries
-bin
