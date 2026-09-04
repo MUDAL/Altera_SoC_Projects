@@ -4,6 +4,7 @@ Custom hardware-software co-design projects by Olaoluwa Raji for experimentation
 ## Tools
 - Terasic DE1-SoC board
 - Quartus Prime 18.1
+- Platform Designer  
 - SoC EDS Command Shell
 - Micro SD card
 - Flash drive
