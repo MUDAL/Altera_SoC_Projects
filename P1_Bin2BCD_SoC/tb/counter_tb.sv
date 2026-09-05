@@ -20,9 +20,6 @@
 
 // Counter Testbench.
 
-// Changes made (15/06/2026): Removed initialization for "rst_n_sync" as that
-// causes it to have multiple drivers.
-
 `timescale 1ns / 1ps
 
 module counter_tb();
@@ -38,8 +35,7 @@ module counter_tb();
    logic             clear  = 1'b0;
    logic [WIDTH-1:0] count;
    logic             done;
-   // Signals: Simulation
-   logic rst_n_sync;    
+   // Signals: Simulation  
    int   time_enabled = 0;
    
    initial begin: clock_gen
@@ -56,15 +52,10 @@ module counter_tb();
       rst_n <= 1'b1;
    end
    
-   // Instantiate reset domain crossing module.
-   rdc reset_sync(.clk       (clk),
-                  .rst_n_in  (rst_n),
-                  .rst_n_out (rst_n_sync));  
-   
    initial begin: stimuli
       $display("%0t | Counter should count %0d cycles",$time, MAX_CYCLES);
-      wait(rst_n_sync == 1'b0);
-      wait(rst_n_sync == 1'b1);
+      wait(rst_n == 1'b0);
+      wait(rst_n == 1'b1);
       
       // Test 1: Counter enable
       $display("%0t | Test 1: \"counter enable\"",$time);
@@ -98,7 +89,7 @@ module counter_tb();
    // UUT
    counter #(.WIDTH  (WIDTH)) uut
             (.clk    (clk),
-             .rst_n  (rst_n_sync),
+             .rst_n  (rst_n),
              .enable (enable),
              .clear  (clear),
              .count  (count),
@@ -114,8 +105,8 @@ module counter_tb();
       test1_completed = 1'b0;
       /////////////////////////////////////////////////////
       $timeformat(-9, 0, " ns");
-      wait(rst_n_sync == 1'b0);
-      wait(rst_n_sync == 1'b1);
+      wait(rst_n == 1'b0);
+      wait(rst_n == 1'b1);
       
       // Test 1: Monitoring counter enable
       forever begin

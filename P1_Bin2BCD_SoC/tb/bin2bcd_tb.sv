@@ -20,15 +20,6 @@
 
 // Testbench for the Binary-to-BCD module.
 
-// Changes made (24/05/2026): Accounted for reset domain crossing (RDC).
-// Changes made (31/05/2026): Made the initialization of the binary input
-// generic. 
-// Changes made (03/06/2026): Removed versions 1 and 2 of the RTL designs.
-// Removed bin2bcd parameter definitions from the global package (pkg.sv)
-// to give more flexibility in instantiating the bin2bcd design.  
-// Changes made (15/06/2026): Removed initialization for "rst_n_sync" as that
-// causes it to have multiple drivers.
-
 `timescale 1ns / 1ps
 
 module bin2bcd_tb();
@@ -46,8 +37,7 @@ module bin2bcd_tb();
    // Signals: Simulation
    logic [BIN_WIDTH-1:0] bin_val;
    logic [BCD_WIDTH-1:0] exp_val;
-   logic [BCD_WIDTH-1:0] exp_queue[$]; // Queue of expected values
-   logic rst_n_sync;    
+   logic [BCD_WIDTH-1:0] exp_queue[$]; // Queue of expected values  
    logic file_end      = 1'b0;
    int   tests_sent    =  0;
    int   fd;
@@ -64,12 +54,7 @@ module bin2bcd_tb();
       rst_n <= 1'b0;
       repeat(5) @(posedge clk);
       rst_n <= 1'b1;
-   end
-   
-   // Instantiate reset domain crossing module.
-   rdc reset_sync(.clk       (clk),
-                  .rst_n_in  (rst_n),
-                  .rst_n_out (rst_n_sync));     
+   end   
    
    // Read test vectors from file(s) and inject into the UUT.
    // $fscanf() with %d and %x format specifier for stimuli
@@ -85,8 +70,8 @@ module bin2bcd_tb();
    initial begin: stimuli
       int rc;
       int eof; 
-      wait(rst_n_sync == 1'b0);
-      wait(rst_n_sync == 1'b1);
+      wait(rst_n == 1'b0);
+      wait(rst_n == 1'b1);
       fd = $fopen("../scripts/test/bin2bcd_tb_vectors.txt", "r");
       
       if(fd == 0) $fatal(1, "Failed to open bin2bcd_tb_vectors.txt");
@@ -112,7 +97,7 @@ module bin2bcd_tb();
    
    // UUT
    bin2bcd uut(.clk       (clk),
-               .rst_n     (rst_n_sync),
+               .rst_n     (rst_n),
                .valid_in  (valid_in),
                .bin       (bin),
                .bcd       (bcd),
@@ -134,8 +119,8 @@ module bin2bcd_tb();
       tests_checked = 0;
       /////////////////////////////////////////////////////
       $timeformat(-9, 0, " ns");
-      wait(rst_n_sync == 1'b0);
-      wait(rst_n_sync == 1'b1);
+      wait(rst_n == 1'b0);
+      wait(rst_n == 1'b1);
       forever begin
          @(posedge clk);
          if(exp_queue.size()==0 && file_end && (tests_checked == tests_sent)) begin
