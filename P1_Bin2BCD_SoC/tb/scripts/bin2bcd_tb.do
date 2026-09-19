@@ -1,4 +1,4 @@
-# Execute Python script to generate test vectors and status report files
+# Execute Python script to generate test vectors
 cd ../scripts
 if {$tcl_platform(os) eq "Windows NT"} {
     exec python bin2bcd_tb.py

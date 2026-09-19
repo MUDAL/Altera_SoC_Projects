@@ -1,6 +1,3 @@
-# Ensure you're in the build directory before compiling sources and running simulation
-# Reason: ModelSim auto-generated files will be dumped here
-
 # Create libraries
 if {[file exists work]} {
     vdel -lib work -all
