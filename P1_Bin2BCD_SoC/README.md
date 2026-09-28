@@ -111,7 +111,9 @@ The scripts for automating the verification of the various components of the har
 
 ## 4 Demo
 
-TO-DO: Add video demos  
+1. [Project creation and loading of bitstream to the FPGA side](https://drive.google.com/file/d/1OF4pmlEAcyAq7BAfGhvuPe2xpSpRgrvb/view?usp=drive_link)  
+2. [Compiling the application software for the processor side of the SoC](https://drive.google.com/file/d/1D4a7GGgPEaIwRkJbKOGmL9ELUluUNKsm/view?usp=drive_link)    
+3. [Running the application on the HPS through PuTTY](https://drive.google.com/file/d/1CLedsHOIqoFGUix8jytnJpoJRCk1CxoZ/view?usp=drive_link)  
 
 ## Useful Resources
 
