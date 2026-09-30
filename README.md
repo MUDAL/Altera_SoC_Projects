@@ -9,7 +9,9 @@ Custom hardware-software co-design projects by Olaoluwa Raji for experimentation
 - Micro SD card
 - Flash drive
 
-<img width="500" height="373" alt="Screenshot 2026-09-30 151813" src="https://github.com/user-attachments/assets/968199d1-e17c-4ea7-9e89-afa22efbcfb7" />   
+<p align="center">
+<img width="500" height="373" alt="Screenshot 2026-09-30 151813" src="https://github.com/user-attachments/assets/968199d1-e17c-4ea7-9e89-afa22efbcfb7">
+</p> 
 
 ## Useful Resources
 - Terasic DE1-SoC Projects by [ojakinlade](https://github.com/ojakinlade). This repository linked below contains everything you need to get started with the board.  
